@@ -1,0 +1,78 @@
+show databases;
+create database exam;
+use exam;
+
+
+create table DEPT
+(
+DEPTNO int(2),
+DNAME varchar(15),
+LOC varchar(10)
+);
+
+insert into dept values
+(10,'ACCOUNTING','NEW YORK'),
+(20,'RESEARCH','DALLAS'),
+(30,'SALES ','CHICAGO'),
+(40,'OPERATIONS','BOSTON')
+;
+select * from dept;
+
+
+create table EMP
+(
+EMPNO int(4),
+ENAME varchar(10),
+JOB varchar(9),
+HIREDATE date,
+SAL float(7,2),
+COMM float(7,2),
+DEPTNO Int(2)
+);
+desc emp;
+
+insert into emp(EMPNO,ENAME,JOB,HIREDATE,SAL,COMM,DEPTNO) VALUES
+(7839,'KING','MANAGER','1992-11-17',5000,Null,10),
+(7698,'BLAKE','CLERK','1981-05-01',2850,NULL,30),
+(7782,'CLARK','MANAGER','1981-06-09',2450,NULL,10),
+(7566,'JONES','CLERK','1981-04-02',2975,NULL,20),
+(7654,'MARTIN','SALESMAN','1981-09-28',1250,1400,30),
+(7499,'ALLEN','SALESMAN','1981-02-20',1600,300,30);
+select * from emp;
+
+
+
+Select * from emp
+where sal between 2500 and 5000;
+
+
+select ename as 'ENMAE (DESCANDING ORDER)'from emp 
+order by 1 desc;
+
+
+
+select lower(JOB) AS 'JOB (Lower Case)' from emp;
+
+
+
+select ENAME, length(ENAME)  from emp;
+
+
+
+select deptno, count(DEptno) AS 'No OF Employee' from emp 
+group by deptno;
+
+
+
+select emp.ename,dept.dname from emp,dept
+where emp.deptno=dept.deptno;
+
+
+
+select instr(ename,'AR') as 'postion of AR' from emp;
+
+
+
+select ename,SAL*0.2 as 'HRA AS 20%' from emp;
+
+

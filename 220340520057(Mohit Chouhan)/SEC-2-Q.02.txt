@@ -1,0 +1,13 @@
+delimiter //
+create function FUNCI( l float ,b float ,h float)
+returns boolean
+deterministic
+if (l+b>h) and (h+b>l) and (l+h>b) then 
+ return true;
+ else
+ return false;
+ end if;
+ end; //
+  delimiter ;
+select FUNCI(3,4,5) from dual;
+select FUNCI(3,4,10) from dual;

@@ -1,0 +1,23 @@
+create table TEMPP 
+(
+STR1 varchar(10),
+STR2 varchar(10),
+output varchar(20)
+);
+
+delimiter //
+create procedure PROCI(Str1 varchar(10),Str2 varchar(10))
+begin
+ declare ot varchar(20);
+if instr(str1,str2) then 
+ insert into tempp values(str1 ,str2,'exists');
+ else
+ insert into tempp values(str1 ,str2,'not exists');
+ end if;
+ end ; //
+ delimiter //
+ 
+ call PROCI('CDAC','DAC');
+ call PROCI('MUMBAI','INDORE');
+ call PROCI('APPLE','PPLe');
+select * from tempp;
